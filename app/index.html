@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>COBI.js - The perfect fusion of smartphone and bike.</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />    
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <link rel="stylesheet" href="styles/cobi.css">
+</head>
+  
+<body>
+  <div id="header">
+    <h2>COBI.Bike Hello World - Caroline</h2>
+  </div>
+  <div class="my-content">
+    <div id="speed">Waiting for COBI.Bike to load...</div>
+  </div>
+
+  <div id="cobi-thumbnail">
+    <img src="https://cdn.glitch.com/a8410dbe-26b4-49d1-9343-b70acf2ecb1a%2FCOBI_logo_neg_15mm_rgb_no-claim.png?1533568547538" width="150" height="50">
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+  <!-- COBI.JS -->
+  <script src="https://cdn.cobi.bike/cobi.js/0.44.0/cobi.js"></script>
+  <script>
+
+    // Authenticate your module
+    COBI.init('token');
+    
+    // Subscribe to a data service
+    COBI.rideService.speed.subscribe(function(speed) {      
+      $('#speed').html(`You are riding at ${ speed.toFixed(2) } m/s`);
+    });
+  </script>
+  
+</body>
+</html>
